@@ -1,0 +1,24 @@
+# Obsidian vault config (keep your vault settings private)
+.obsidian/
+.trash/
+
+# OS cruft
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Editors
+.vscode/
+*.swp
+*~
+
+# Private / unredacted notes — never commit these
+private/
+*-PRIVATE.md
+*.unredacted.md
+
+# Screenshots may contain IPs, MACs, usernames, hostnames — review before adding
+screenshots/
+*.png
+*.jpg
+*.jpeg

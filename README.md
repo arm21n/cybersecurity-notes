@@ -28,6 +28,14 @@ keys).
   through a SIEM: phishing → execution → C2 → credential access → lateral
   movement → collection → exfiltration, plus MITRE ATT&CK and case reporting.
 
+### Projects
+Hands-on builds that grew out of my studies (each in its own repo).
+- **[Fedora–Android Voice Monitor](https://github.com/arm21n/fedora-android-voice-monitor)**
+  — built while learning SSH in my cybersecurity course. A Python script reads
+  my Fedora laptop's CPU temperature and, when it gets too hot, uses key-based
+  SSH into Termux to make my Android phone speak a warning. Along the way I
+  debugged a firewalld zone mismatch and set up non-interactive Ed25519 auth.
+
 ## A note on privacy & ethics
 
 - Personal values (my public IP, MAC addresses, key fingerprints, exact subnet,
@@ -42,7 +50,7 @@ keys).
 ## Tools I'm learning with
 
 Fedora Linux · `ip`, `ss`, `dig`, `nslookup`, `whois`, `traceroute`, `nmap` ·
-`firewalld` · `mokutil`/Secure Boot · Shodan · TryHackMe · Obsidian (for the
+`firewalld` · `ssh`/Ed25519 keys · Termux · `mokutil`/Secure Boot · Shodan · TryHackMe · Obsidian (for the
 original linked notes).
 
 ---

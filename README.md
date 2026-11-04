@@ -1,7 +1,7 @@
 # Cybersecurity Learning Notes
 
 My notes and write-ups as I learn cybersecurity, working through the book
-*How Cybersecurity Really Works* (Sam Grapp) and rooms on TryHackMe. I'm a
+*How Cybersecurity Really Works* (Sam Grubb) and rooms on TryHackMe. I'm a
 first-year student working toward penetration testing, and I keep these to
 review what I've learned and to track my progress.
 

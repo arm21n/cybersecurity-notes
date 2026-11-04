@@ -28,6 +28,13 @@ keys).
   through a SIEM: phishing → execution → C2 → credential access → lateral
   movement → collection → exfiltration, plus MITRE ATT&CK and case reporting.
 
+### `lab-sessions/`
+Notes from the hands-on cybersecurity course I'm taking alongside university.
+- **L4 – Linux: SSH** — Kali VM on a bridged network, installing and reading
+  `sshd_config` (what commented defaults mean), failing logins on purpose and
+  finding them in `journalctl`, source ports vs the SSH port, and how a blue
+  team spots and responds to SSH brute force.
+
 ### Projects
 Hands-on builds that grew out of my studies (each in its own repo).
 - **[Fedora–Android Voice Monitor](https://github.com/arm21n/fedora-android-voice-monitor)**
@@ -50,7 +57,7 @@ Hands-on builds that grew out of my studies (each in its own repo).
 ## Tools I'm learning with
 
 Fedora Linux · `ip`, `ss`, `dig`, `nslookup`, `whois`, `traceroute`, `nmap` ·
-`firewalld` · `ssh`/Ed25519 keys · Termux · `mokutil`/Secure Boot · Shodan · TryHackMe · Obsidian (for the
+`firewalld` · `ssh`/`sshd_config`/Ed25519 keys · `journalctl` · VirtualBox/Kali · Termux · `mokutil`/Secure Boot · Shodan · TryHackMe · Obsidian (for the
 original linked notes).
 
 ---

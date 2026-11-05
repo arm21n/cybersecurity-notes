@@ -35,6 +35,13 @@ Notes from the hands-on cybersecurity course I'm taking alongside university.
   finding them in `journalctl`, source ports vs the SSH port, and how a blue
   team spots and responds to SSH brute force.
 
+### `concepts/`
+Short explanations of security ideas I've picked up.
+- **Network segmentation & printer security** — why printers and other IoT
+  devices are common weak spots, subnets/VLANs, firewall rules between
+  segments, limiting lateral movement, and how a pentester checks for a flat
+  network.
+
 ### `tool-notes/`
 Short comparisons of everyday tools.
 - **Process monitors & cross-platform shells** — htop vs Windows Task Manager

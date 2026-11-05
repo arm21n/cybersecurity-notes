@@ -35,6 +35,13 @@ Notes from the hands-on cybersecurity course I'm taking alongside university.
   finding them in `journalctl`, source ports vs the SSH port, and how a blue
   team spots and responds to SSH brute force.
 
+### `tool-notes/`
+Short comparisons of everyday tools.
+- **Process monitors & cross-platform shells** — htop vs Windows Task Manager
+  vs Xfce Task Manager (and why htop is what you'll have over SSH on a
+  target), PowerShell 7 (`pwsh`) on Kali, and running Linux on Windows with
+  WSL.
+
 ### Projects
 Hands-on builds that grew out of my studies (each in its own repo).
 - **[Fedora–Android Voice Monitor](https://github.com/arm21n/fedora-android-voice-monitor)**
@@ -57,7 +64,7 @@ Hands-on builds that grew out of my studies (each in its own repo).
 ## Tools I'm learning with
 
 Fedora Linux · `ip`, `ss`, `dig`, `nslookup`, `whois`, `traceroute`, `nmap` ·
-`firewalld` · `ssh`/`sshd_config`/Ed25519 keys · `journalctl` · VirtualBox/Kali · Termux · `mokutil`/Secure Boot · Shodan · TryHackMe · Obsidian (for the
+`firewalld` · `htop` · `pwsh` · WSL · `ssh`/`sshd_config`/Ed25519 keys · `journalctl` · VirtualBox/Kali · Termux · `mokutil`/Secure Boot · Shodan · TryHackMe · Obsidian (for the
 original linked notes).
 
 ---

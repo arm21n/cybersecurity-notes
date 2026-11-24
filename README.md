@@ -29,6 +29,8 @@ keys).
   movement → collection → exfiltration, plus MITRE ATT&CK and case reporting.
 - **CyberHeroes** — a login page that checks credentials in client-side
   JavaScript; finding them in DevTools and why that's broken.
+- **Neighbour** — an IDOR: changing a username in the URL to view the admin's
+  page, and why being logged in isn't the same as being allowed.
 
 ### `lab-sessions/`
 Notes from the hands-on cybersecurity course I'm taking alongside university.

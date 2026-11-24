@@ -18,6 +18,11 @@ Notes from *How Cybersecurity Really Works*.
   traceroute, TTL fingerprinting, auditing open ports, hardening Fedora and
   Windows, Secure Boot with a self-enrolled key, Shodan, and a responsible
   disclosure.
+- **Ch3 – Phishing Tactics** — analyzing a real phishing email (fake Brazilian
+  bank "points expiring today" scam): reading headers with MX Toolbox,
+  SPF/DKIM/DMARC and alignment, decoding a base64 body on Fedora, VirusTotal
+  (and why 0 detections ≠ safe), tracing the sender to a rented cloud VPS, and
+  the social-engineering tricks used.
 
 ### `thm-writeups/`
 TryHackMe room notes (concepts and approach — no flags or step-by-step answer
@@ -75,7 +80,7 @@ Hands-on builds that grew out of my studies (each in its own repo).
 ## Tools I'm learning with
 
 Fedora Linux · `ip`, `ss`, `dig`, `nslookup`, `whois`, `traceroute`, `nmap` ·
-`firewalld` · `htop` · `pwsh` · WSL · `ssh`/`sshd_config`/Ed25519 keys · `journalctl` · VirtualBox/Kali · Termux · `mokutil`/Secure Boot · Shodan · TryHackMe · Obsidian (for the
+`firewalld` · `htop` · `pwsh` · WSL · `ssh`/`sshd_config`/Ed25519 keys · `journalctl` · VirtualBox/Kali · Termux · `mokutil`/Secure Boot · Shodan · MX Toolbox · VirusTotal · `base64` · TryHackMe · Obsidian (for the
 original linked notes).
 
 ---

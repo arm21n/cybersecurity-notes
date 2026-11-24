@@ -130,6 +130,20 @@ tags: [cybersecurity, phishing, email-headers, spf, dkim, dmarc, base64, mxtoolb
 - **This does NOT mean it's safe.** The email is from **2023**; phishing domains live for hours or days before they're taken down or abandoned (the book's own Joe Sandbox example hit "link not found"). Scanners judge the domain **as it is now**: dead and empty.
 - Everything else (unrelated domain, failed auth, bank impersonation) already proves intent. **Clean on VirusTotal ≠ safe; one detection = assume malicious.**
 
+### 3.4b Sandbox (urlscan.io instead of Joe Sandbox)
+
+- Joe Sandbox wouldn't let me register (it often rejects personal email addresses), so I used **urlscan.io**. It needs no account: it opens the URL in a remote browser and records DNS, requests and screenshots.
+- Result: **HTTP 400 – DNS Error – could not resolve domain**. The domain no longer points to any IP, so there's nothing to load. Same outcome as the book's Joe Sandbox example ("link not found").
+
+![urlscan.io – DNS error, domain could not be resolved](images/ch3-phishing/13-urlscan-dns-error.png)
+
+> [!warning] Correction: "dead" ≠ "it was never malicious" ≠ "it's solved"
+> My first thought was "it's no longer malicious because it's been solved." More precisely:
+> - **Dead now ≠ harmless then.** In Sept 2023 the link worked, and anyone who clicked could have lost their bank login. The verdict on the *email* stays **malicious**.
+> - **We don't know it was "solved."** No DNS can mean a takedown, but also that the attacker let it expire or moved to a new domain. Phishers rotate domains on purpose.
+> - **Dead domains can come back.** Anyone can re-register an expired domain, including the same attacker. Keep the IOC on blocklists.
+> - **Sandbox vs VirusTotal:** VirusTotal asks ~90 engines "do you already know this URL is bad?" A sandbox actually **visits** it in an isolated machine and shows **what happens**. Here both came up empty for the same reason: there's nothing left to visit.
+
 ### 3.5 Psychology (social engineering)
 
 - **Urgency / scarcity:** "expira HOJE", "agora mesmo", "before they expire".
@@ -163,7 +177,7 @@ tags: [cybersecurity, phishing, email-headers, spf, dkim, dmarc, base64, mxtoolb
 | Parse header | MX Toolbox | MX Toolbox Analyze Headers |
 | Read body | Email client | Body was **base64** → decoded in the terminal, read as text |
 | Check URL | VirusTotal | VirusTotal (link copied from decoded HTML, never visited) |
-| Detonate | Joe Sandbox | Skipped (domain dead; results public) |
+| Detonate | Joe Sandbox | Couldn't register → **urlscan.io** (no account) → DNS error, domain dead |
 
 ---
 
@@ -175,6 +189,7 @@ tags: [cybersecurity, phishing, email-headers, spf, dkim, dmarc, base64, mxtoolb
 | "Sent from an Ubuntu laptop" | Hostname pattern = **DigitalOcean droplet** → read hostnames, they leak infrastructure |
 | Rendered the HTML in an online preview | Read phishing HTML as **text**. Rendering can fire tracking pixels |
 | VirusTotal 0/93 | **Absence of detection ≠ safe.** Old phish domains are dead |
+| "Domain is dead, so it's not malicious / solved" | Dead now ≠ harmless when sent. Domains get rotated and re-registered |
 | Attack type "phishing" | Be specific: **mass credential phishing**, impersonating a bank |
 
 ---

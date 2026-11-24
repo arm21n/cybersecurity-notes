@@ -79,6 +79,14 @@ tags: [cybersecurity, phishing, email-headers, spf, dkim, dmarc, base64, mxtoolb
 - **Return-Path `root@…`** and `from userid 0` → sent as the **root user** with zero setup: no real domain, no hostname. Sloppy and disposable.
 - **`To: phishing@pot`** = the honeypot mailbox that collected the sample, not a personal address → mass mailing (same idea as the book's BCC trick).
 
+![MX Toolbox relay hops – hop 1 is the DigitalOcean droplet](images/ch3-phishing/02-mxtoolbox-relay-hops.png)
+*Relay hops: hop 1 is the Ubuntu droplet (`137.184.34.4`), then Microsoft's servers take over.*
+
+![Headers found – From, Return-Path, Message-ID](images/ch3-phishing/04-headers-found.png)
+*Display name says Bradesco; Return-Path says `root@` on a cloud server.*
+
+![X-Sender-IP and spam scores](images/ch3-phishing/05-headers-sender-ip-scl.png)
+
 ### 3.2 Authentication results (MX Toolbox)
 
 `Authentication-Results: spf=temperror … dkim=none (message not signed) … dmarc=temperror … compauth=fail`
@@ -88,19 +96,37 @@ tags: [cybersecurity, phishing, email-headers, spf, dkim, dmarc, base64, mxtoolb
 - **DMARC: no record found** for `atendimento.com.br` → the domain publishes **no policy**, so receivers don't know to reject spoofed mail claiming to be from it. That makes it easy to impersonate.
 - **compauth=fail** = Microsoft's overall "composite authentication" verdict: **failed**.
 
+![MX Toolbox delivery information – DMARC, SPF, DKIM all failed](images/ch3-phishing/01-mxtoolbox-delivery-info.png)
+
+![SPF and DKIM details – no DMARC record, no SPF name servers, no DKIM signature](images/ch3-phishing/03-mxtoolbox-spf-dkim.png)
+
 ### 3.3 The body (base64)
 
 - `Content-Transfer-Encoding: base64` → the HTML body is encoded, so I couldn't read it raw. Decoded it in the Fedora terminal and read it as **plain text**.
+
+![Decoding the base64 body in the Fedora terminal](images/ch3-phishing/07-base64-decode-terminal.png)
+
+![Decoded HTML – the "click here" link to the phishing domain](images/ch3-phishing/08-decoded-html-link.png)
+
+![Decoded HTML – the "Resgatar Agora" (Redeem Now) button](images/ch3-phishing/09-decoded-html-redeem-button.png)
 - Translated from Portuguese: "You have Livelo points with your Bradesco card that **expire TODAY**, avoid losing them by redeeming **right now**… exchange for air miles, up to 35% off your card bill". Big **92.990** number, **"Resgatar Agora" (Redeem Now)** button.
 - Both the "click here to view images" link and the button point to the same domain: `hxxps://blog1seguimentmydomaine2bra[.]me/`. It's a random `.me` domain with **nothing to do with Bradesco** (whose real site is `bradesco.com.br`).
+![The email translated from Portuguese](images/ch3-phishing/10-translated-email.png)
+*Translated: urgency ("expire today"), greed (92,990 points), authority (bank branding).*
+
 - Images use **relative paths** (`header.png`, `icone-superior.png`) → they'd never load in an inbox. So the "click here to view images" line is itself bait.
 
 > [!warning] Lesson: I rendered it
 > I previewed the decoded HTML in an online HTML compiler. Here it only loaded Google Fonts, but a real phish often has a **tracking pixel** (a 1×1 image from the attacker's server). Rendering it tells the attacker the address is **live and someone opened it**. Reading the source as text is enough.
+>
+> ![Rendered HTML preview – what the victim would see](images/ch3-phishing/11-rendered-html-preview.png)
 
 ### 3.4 URL analysis (VirusTotal)
 
 - **0 / 93 engines** flagged it, "Status: –", no content.
+
+![VirusTotal – 0/93 detections](images/ch3-phishing/12-virustotal-0-93.png)
+
 - **This does NOT mean it's safe.** The email is from **2023**; phishing domains live for hours or days before they're taken down or abandoned (the book's own Joe Sandbox example hit "link not found"). Scanners judge the domain **as it is now**: dead and empty.
 - Everything else (unrelated domain, failed auth, bank impersonation) already proves intent. **Clean on VirusTotal ≠ safe; one detection = assume malicious.**
 
@@ -114,6 +140,8 @@ tags: [cybersecurity, phishing, email-headers, spf, dkim, dmarc, base64, mxtoolb
 
 - `X-MS-Exchange-Organization-SCL: 5` → Microsoft's **Spam Confidence Level** rated it spam; `BCL:9` = maximum **bulk** score.
 - But `X-Microsoft-Antispam-Mailbox-Delivery: … OFR:TrustedSenderList … dest:I` → it was delivered to the **Inbox** because of a **trusted sender list** override. (Probably on purpose here, so the honeypot collects everything.) User/admin allow-lists can override the filter. Another reason the **human is the last line of defense**.
+
+![X-Microsoft-Antispam-Mailbox-Delivery – OFR:TrustedSenderList, dest:I](images/ch3-phishing/06-headers-trusted-sender-list.png)
 
 ### 3.7 Verdict
 

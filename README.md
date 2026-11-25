@@ -43,6 +43,11 @@ Notes from the hands-on cybersecurity course I'm taking alongside university.
   `sshd_config` (what commented defaults mean), failing logins on purpose and
   finding them in `journalctl`, source ports vs the SSH port, and how a blue
   team spots and responds to SSH brute force.
+- **L9 – Packet Tracer: build and fix a company network** — building an office
+  LAN in Cisco Packet Tracer (switch, 4 PCs, server), static IPv4 and subnet
+  masks, ping/ARP, hosting an internal site over HTTP, DNS A records and
+  `nslookup`, then troubleshooting a broken DNS record (works by IP, not by
+  name).
 
 ### `concepts/`
 Short explanations of security ideas I've picked up.

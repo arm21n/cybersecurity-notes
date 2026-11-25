@@ -36,6 +36,8 @@ keys).
   JavaScript; finding them in DevTools and why that's broken.
 - **Neighbour** — an IDOR: changing a username in the URL to view the admin's
   page, and why being logged in isn't the same as being allowed.
+- **Corridor** — the same IDOR idea with the IDs hashed: the doors are
+  `md5(1..13)`, so hashing the missing value (0) reaches an unlinked page.
 
 ### `lab-sessions/`
 Notes from the hands-on cybersecurity course I'm taking alongside university.

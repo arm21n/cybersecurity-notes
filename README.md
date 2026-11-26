@@ -72,6 +72,13 @@ Hands-on builds that grew out of my studies (each in its own repo).
   my Fedora laptop's CPU temperature and, when it gets too hot, uses key-based
   SSH into Termux to make my Android phone speak a warning. Along the way I
   debugged a firewalld zone mismatch and set up non-interactive Ed25519 auth.
+- **[caesar-ctf](https://github.com/arm21n/caesar-ctf)** — grew out of a
+  Caesar cipher problem on my programming end-term prep. A C++ toolkit: an
+  encrypter, a brute-force cracker (all 25 keys), an automatic cracker using
+  letter-frequency analysis (and where it fails on short messages), and a
+  CTF-style challenge served over the network with `ncat`, which I attacked
+  from my phone in Termux to capture the flag. Along the way I found that
+  Fedora's default firewall zone leaves ports 1025–65535 open.
 - **[HTTP Request Logger](https://github.com/arm21n/http-request-logger)**
   — built after TryHackMe's *Linux Fundamentals Part 3*. A Python web server
   (extending `http.server`) that logs every request's IP, path and headers. I
@@ -94,7 +101,7 @@ Hands-on builds that grew out of my studies (each in its own repo).
 ## Tools I'm learning with
 
 Fedora Linux · `ip`, `ss`, `dig`, `nslookup`, `whois`, `traceroute`, `nmap` ·
-`firewalld` · `htop` · `pwsh` · WSL · `ssh`/`sshd_config`/Ed25519 keys · `journalctl` · VirtualBox/Kali · Termux · `mokutil`/Secure Boot · Shodan · MX Toolbox · VirusTotal · `base64` · `curl`/`wget` · `scp` · `python3 -m http.server` · `tail -F` · TryHackMe · Obsidian (for the
+`firewalld` · `htop` · `pwsh` · WSL · `ssh`/`sshd_config`/Ed25519 keys · `journalctl` · VirtualBox/Kali · Termux · `mokutil`/Secure Boot · Shodan · MX Toolbox · VirusTotal · `base64` · C++/`g++` · `ncat`/`nc` · `curl`/`wget` · `scp` · `python3 -m http.server` · `tail -F` · TryHackMe · Obsidian (for the
 original linked notes).
 
 ---

@@ -72,6 +72,13 @@ Hands-on builds that grew out of my studies (each in its own repo).
   my Fedora laptop's CPU temperature and, when it gets too hot, uses key-based
   SSH into Termux to make my Android phone speak a warning. Along the way I
   debugged a firewalld zone mismatch and set up non-interactive Ed25519 auth.
+- **[HTTP Request Logger](https://github.com/arm21n/http-request-logger)**
+  — built after TryHackMe's *Linux Fundamentals Part 3*. A Python web server
+  (extending `http.server`) that logs every request's IP, path and headers. I
+  compared curl, wget2, Firefox and my Android phone: why the User-Agent can't
+  be trusted, how header count and `Sec-Fetch-*` headers still separate scripts
+  from humans, what `Accept-Language` leaks, the wget2 IPv6 fallback
+  (`errno=111`), and why ports below 1024 need root.
 
 ## A note on privacy & ethics
 
@@ -87,7 +94,7 @@ Hands-on builds that grew out of my studies (each in its own repo).
 ## Tools I'm learning with
 
 Fedora Linux · `ip`, `ss`, `dig`, `nslookup`, `whois`, `traceroute`, `nmap` ·
-`firewalld` · `htop` · `pwsh` · WSL · `ssh`/`sshd_config`/Ed25519 keys · `journalctl` · VirtualBox/Kali · Termux · `mokutil`/Secure Boot · Shodan · MX Toolbox · VirusTotal · `base64` · TryHackMe · Obsidian (for the
+`firewalld` · `htop` · `pwsh` · WSL · `ssh`/`sshd_config`/Ed25519 keys · `journalctl` · VirtualBox/Kali · Termux · `mokutil`/Secure Boot · Shodan · MX Toolbox · VirusTotal · `base64` · `curl`/`wget` · `scp` · `python3 -m http.server` · `tail -F` · TryHackMe · Obsidian (for the
 original linked notes).
 
 ---

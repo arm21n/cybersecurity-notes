@@ -38,6 +38,10 @@ keys).
   page, and why being logged in isn't the same as being allowed.
 - **Corridor** — the same IDOR idea with the IDs hashed: the doors are
   `md5(1..13)`, so hashing the missing value (0) reaches an unlinked page.
+- **Linux Fundamentals Part 3** — moving files (`wget`, `scp`,
+  `python3 -m http.server`), processes and signals, systemd/`systemctl`,
+  background jobs, cron, apt repositories with GPG keys, and `/var/log`.
+  The `http.server` task became my HTTP Request Logger project.
 
 ### `lab-sessions/`
 Notes from the hands-on cybersecurity course I'm taking alongside university.
